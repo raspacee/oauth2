@@ -4,6 +4,7 @@ require("./config/passport.js");
 const mongoose = require("mongoose");
 const indexRouter = require("./routes/index.router.js");
 const authRouter = require("./routes/auth.router.js");
+const profileRouter = require("./routes/profile.router.js");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 
@@ -29,6 +30,7 @@ app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
+app.use("/profile", profileRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

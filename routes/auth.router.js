@@ -4,7 +4,10 @@ const passport = require("passport");
 
 router.get("/login", authController.login);
 
-router.get("/logout", authController.login);
+router.get("/logout", (req, res, next) => {
+  req.logout();
+  res.redirect("/");
+});
 
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 

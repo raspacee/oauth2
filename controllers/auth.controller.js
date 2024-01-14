@@ -5,5 +5,5 @@ exports.login = (req, res, next) => {
 };
 
 exports.google_redirect = (req, res, next) => {
-  res.send(req.user);
+  res.redirect("/profile");
 };
